@@ -23,5 +23,9 @@ jobs:
           go-version-file: go.mod
           cache: false
 
-      - name: Build
-        run: make build-service
+      - name: Build under SBOMit
+        uses: Uk-jake/sbomit-pipeline-runner@main
+        with:
+          build-command: make build-service
+          sbom-format: spdx23
+          use-syft: true
